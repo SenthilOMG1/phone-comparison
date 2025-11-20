@@ -1,0 +1,38 @@
+# Dependencies
+node_modules
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Build outputs
+dist
+build
+*.egg-info
+
+# Development
+.git
+.gitignore
+.env
+.env.local
+.vscode
+.idea
+
+# Testing
+coverage
+.pytest_cache
+*.log
+
+# Documentation
+*.md
+docs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite

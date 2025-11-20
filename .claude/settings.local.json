@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(curl:*)",
+      "Bash(echo:*)",
+      "Bash(timeout 3 bash -c 'while ! curl -s http://localhost:8000/health > /dev/null 2>&1; do sleep 0.5; done; echo \"\"Backend ready!\"\"')"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
