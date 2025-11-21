@@ -37,7 +37,7 @@ export function Login() {
       // Store token and user info
       localStorage.setItem('accessToken', data.access_token);
       localStorage.setItem('tokenExpiry', String(Date.now() + data.expires_in * 1000));
-      localStorage.setItem('user', JSON.stringify({ username }));
+      localStorage.setItem('user', JSON.stringify({ email: username, username }));
 
       // Redirect to home
       navigate('/');
@@ -56,7 +56,7 @@ export function Login() {
           <h1 className="text-4xl font-bold text-white mb-2">
             MobiMEA Intelligence
           </h1>
-          <p className="text-gray-300">Phone Comparison & Market Intelligence Platform</p>
+          <p className="text-gray-300">MobiMEA Intelligence Platform</p>
         </div>
 
         {/* Login Card */}

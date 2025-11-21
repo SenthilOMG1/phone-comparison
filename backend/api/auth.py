@@ -1,16 +1,16 @@
 """
 Authentication endpoints for MobiMEA Intelligence Platform
-Simple JWT-based authentication with single admin user
+Uses Supabase Auth for user management
 """
 
 from fastapi import APIRouter, HTTPException, Depends, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
 from jose import JWTError, jwt
-from passlib.context import CryptContext
 from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
+from supabase import create_client, Client
 
 load_dotenv()
 
@@ -21,10 +21,14 @@ SECRET_KEY = os.getenv("JWT_SECRET", "mobimea-super-secret-key-change-this")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 480  # 8 hours
 
-ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "MobiMEA@2025!SecurePass")
+# Supabase configuration
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY")
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+if not SUPABASE_URL or not SUPABASE_ANON_KEY:
+    raise ValueError("SUPABASE_URL and SUPABASE_ANON_KEY must be set in environment variables")
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
 # Models
@@ -34,32 +38,33 @@ class Token(BaseModel):
     expires_in: int
 
 class TokenData(BaseModel):
-    username: str | None = None
+    email: str | None = None
 
 class User(BaseModel):
-    username: str
+    email: str
+    id: str | None = None
     full_name: str = "MobiMEA Admin"
 
 # Helper functions
-def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Verify a password against its hash"""
-    return pwd_context.verify(plain_password, hashed_password)
+async def authenticate_user(email: str, password: str) -> User | None:
+    """Authenticate user with Supabase"""
+    try:
+        # Authenticate with Supabase
+        response = supabase.auth.sign_in_with_password({
+            "email": email,
+            "password": password
+        })
 
-def get_password_hash(password: str) -> str:
-    """Generate password hash"""
-    return pwd_context.hash(password)
+        if response.user:
+            return User(
+                email=response.user.email,
+                id=response.user.id
+            )
 
-def authenticate_user(username: str, password: str) -> User | None:
-    """Authenticate user with username and password"""
-    if username != ADMIN_USERNAME:
         return None
-
-    # For simplicity, compare plain text password
-    # In production, you'd store hashed password
-    if password != ADMIN_PASSWORD:
+    except Exception as e:
+        print(f"Authentication error: {e}")
         return None
-
-    return User(username=username)
 
 def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:
     """Create JWT access token"""
@@ -85,39 +90,37 @@ async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
 
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("sub")
+        email: str = payload.get("sub")
 
-        if username is None:
+        if email is None:
             raise credentials_exception
 
-        token_data = TokenData(username=username)
+        token_data = TokenData(email=email)
 
     except JWTError:
         raise credentials_exception
 
-    if token_data.username != ADMIN_USERNAME:
-        raise credentials_exception
-
-    return User(username=token_data.username)
+    return User(email=token_data.email)
 
 # Routes
 @router.post("/login", response_model=Token)
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     """
     Login endpoint - returns JWT token
+    Uses Supabase for authentication
     """
-    user = authenticate_user(form_data.username, form_data.password)
+    user = await authenticate_user(form_data.username, form_data.password)
 
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
+            detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
 
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={"sub": user.username},
+        data={"sub": user.email},
         expires_delta=access_token_expires
     )
 

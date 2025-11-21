@@ -75,7 +75,7 @@ export function Navigation() {
             {/* User & Logout */}
             <div className="ml-4 flex items-center gap-3 pl-3 border-l border-gray-200">
               <span className="text-sm text-gray-600 hidden sm:inline">
-                {user?.username}
+                {user?.email || user?.username}
               </span>
               <button
                 onClick={handleLogout}
