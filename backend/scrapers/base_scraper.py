@@ -24,7 +24,7 @@ class BaseScraper(ABC):
         try:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(
-                    headless=False,  # Show browser window
+                    headless=True,  # Headless mode for production
                     args=[
                         '--disable-blink-features=AutomationControlled',
                         '--disable-dev-shm-usage',
