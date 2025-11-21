@@ -29,6 +29,9 @@ app.add_middleware(
         "http://localhost:5175",
         "http://localhost:5176",
         "http://localhost:5177",
+        "http://13.214.194.115",
+        "http://intel.mobimea.com",
+        "https://intel.mobimea.com",
         os.getenv("FRONTEND_URL", "http://localhost:5177")
     ],
     allow_credentials=True,
