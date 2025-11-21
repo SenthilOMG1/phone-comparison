@@ -12,3 +12,5 @@ beautifulsoup4==4.12.2
 python-multipart==0.0.6
 httpx==0.25.2
 pandas==2.1.4
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4

@@ -1,11 +1,19 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Home, GitCompare, LayoutDashboard, TrendingUp, Tag, BarChart3, Settings, Sparkles } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Home, GitCompare, LayoutDashboard, TrendingUp, Tag, BarChart3, Settings, Sparkles, LogOut } from 'lucide-react';
 import { AIOverlay } from './AIOverlay';
+import { useAuth } from '../../contexts/AuthContext';
 
 export function Navigation() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { logout, user } = useAuth();
   const [isAIOpen, setIsAIOpen] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   const navItems = [
     { path: '/', label: 'Dashboard', icon: LayoutDashboard },
@@ -63,6 +71,21 @@ export function Navigation() {
               <Sparkles className="w-4 h-4" />
               <span className="hidden md:inline">AI</span>
             </button>
+
+            {/* User & Logout */}
+            <div className="ml-4 flex items-center gap-3 pl-3 border-l border-gray-200">
+              <span className="text-sm text-gray-600 hidden sm:inline">
+                {user?.username}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg text-sm font-medium transition-colors"
+                title="Logout"
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="hidden lg:inline">Logout</span>
+              </button>
+            </div>
           </div>
 
           <AIOverlay isOpen={isAIOpen} onClose={() => setIsAIOpen(false)} />

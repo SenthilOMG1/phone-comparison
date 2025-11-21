@@ -121,6 +121,34 @@ export interface PriceHistoryResponse {
   days: number;
 }
 
+export interface ProductListItem {
+  id: number;
+  name: string;
+  brand: string;
+  model: string;
+  slug: string;
+  best_price: number;
+  retailer: string;
+  in_stock: boolean;
+  url: string | null;
+}
+
+export interface ProductsListResponse {
+  count: number;
+  products: ProductListItem[];
+}
+
+export async function getAllProducts(limit?: number, brand?: string): Promise<ProductsListResponse> {
+  const params = new URLSearchParams();
+  if (limit) params.append('limit', limit.toString());
+  if (brand) params.append('brand', brand);
+
+  const query = params.toString();
+  return apiFetch<ProductsListResponse>(
+    `/api/products${query ? `?${query}` : ''}`
+  );
+}
+
 export async function getProductBySlug(slug: string): Promise<Product> {
   return apiFetch<Product>(`/api/products/${slug}`);
 }

@@ -8,22 +8,40 @@ import { MarketIntelligence } from './pages/MarketIntelligence';
 import { Promotions } from './pages/Promotions';
 import { Analytics } from './pages/Analytics';
 import { AIAssistant } from './pages/AIAssistant';
+import { Login } from './pages/Auth/Login';
+import { AuthProvider } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
-        <Navigation />
+      <AuthProvider>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/market" element={<MarketIntelligence />} />
-          <Route path="/promotions" element={<Promotions />} />
-          <Route path="/analytics" element={<Analytics />} />
+          {/* Public route - Login */}
+          <Route path="/login" element={<Login />} />
+
+          {/* Protected routes - All app pages require authentication */}
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoute>
+                <div className="min-h-screen bg-white">
+                  <Navigation />
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/compare" element={<Compare />} />
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="/market" element={<MarketIntelligence />} />
+                    <Route path="/promotions" element={<Promotions />} />
+                    <Route path="/analytics" element={<Analytics />} />
+                  </Routes>
+                </div>
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-      </div>
+      </AuthProvider>
     </Router>
   );
 }

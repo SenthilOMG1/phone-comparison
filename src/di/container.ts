@@ -5,7 +5,7 @@
  */
 
 import { PhoneService, ComparisonService, PricingService } from '../application/services';
-import { StaticPhoneRepository, ApiPriceRepository, ApiPromotionRepository } from '../infrastructure/repositories';
+import { ApiPhoneRepository, ApiPriceRepository, ApiPromotionRepository } from '../infrastructure/repositories';
 import type { IPhoneRepository, IPriceRepository, IPromotionRepository } from '../domain/repositories';
 
 class DIContainer {
@@ -27,8 +27,8 @@ class DIContainer {
    * Register all services
    */
   private registerServices(): void {
-    // Repositories
-    this.register<IPhoneRepository>('PhoneRepository', () => new StaticPhoneRepository());
+    // Repositories - Now using API-based repository for real Supabase data
+    this.register<IPhoneRepository>('PhoneRepository', () => new ApiPhoneRepository());
     this.register<IPriceRepository>('PriceRepository', () => new ApiPriceRepository());
     this.register<IPromotionRepository>('PromotionRepository', () => new ApiPromotionRepository());
 

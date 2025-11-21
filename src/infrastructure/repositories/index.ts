@@ -1,3 +1,3 @@
-export { StaticPhoneRepository } from './StaticPhoneRepository';
+export { ApiPhoneRepository } from './ApiPhoneRepository';
 export { ApiPriceRepository } from './ApiPriceRepository';
 export { ApiPromotionRepository } from './ApiPromotionRepository';

@@ -11,6 +11,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from database.db_manager_supabase import DatabaseManager
+from api.auth import router as auth_router
 
 load_dotenv()
 
@@ -41,6 +42,9 @@ app.add_middleware(
 
 # Initialize database manager
 db_manager = DatabaseManager()
+
+# Include authentication router
+app.include_router(auth_router)
 
 @app.get("/")
 async def root():
@@ -93,6 +97,40 @@ async def get_latest_prices(limit: int = 50):
 # ========================================
 # PRODUCT ENDPOINTS
 # ========================================
+
+@app.get("/api/products")
+async def list_all_products(limit: int = 100, brand: Optional[str] = None):
+    """List all products with their basic info and specifications"""
+    try:
+        prices = db_manager.get_latest_prices(limit=limit)
+
+        # Get unique products (group by product_id)
+        products_dict = {}
+        for price in prices:
+            product_id = price['product_id']
+            if brand and price['brand'].lower() != brand.lower():
+                continue
+
+            if product_id not in products_dict:
+                products_dict[product_id] = {
+                    'id': product_id,
+                    'name': price['product_name'],
+                    'brand': price['brand'],
+                    'model': price['model'],
+                    'slug': price['slug'],
+                    'best_price': price['price_cash'],
+                    'retailer': price['retailer_name'],
+                    'in_stock': price['in_stock'],
+                    'url': price.get('url')
+                }
+
+        products = list(products_dict.values())
+        return {
+            'count': len(products),
+            'products': products
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/products/{slug}")
 async def get_product_details(slug: str):
