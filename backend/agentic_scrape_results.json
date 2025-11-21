@@ -1,0 +1,96 @@
+[
+  {
+    "name": "SAMSUNG GALAXY A05 64GB GREEN",
+    "brand": "Samsung",
+    "model": "GALAXY A05",
+    "variant": "64GB GREEN",
+    "reference_number": "20042125",
+    "pricing": {
+      "cash_price": "Rs 4,790",
+      "original_price": "Rs 5,590",
+      "discount_amount": "Rs 800",
+      "indicative_monthly_instalment": {
+        "months": "30",
+        "amount_per_month": "Rs 186"
+      }
+    },
+    "specs": {
+      "display": {
+        "type": "PLS LCD HD+",
+        "size": "6.7 inch",
+        "resolution": "1600 x 720 pixels"
+      },
+      "processor": "Mediatek MT6769V/CZ Helio G85 Octa Core 2.0 GHz",
+      "RAM": "4GB",
+      "storage": "64GB Internal Storage",
+      "camera": {
+        "rear": "Dual Rear Camera: 50MP+2MP",
+        "front": "8MP"
+      },
+      "battery": "5000mAh",
+      "connectivity": null,
+      "software": "Android 13",
+      "physical": null,
+      "warranty": {
+        "standard_warranty": "2 Years Warranty",
+        "supashield_options": [
+          {
+            "type": "1 Year Additional Supashield",
+            "price": "Rs 1,099",
+            "selected": false
+          },
+          {
+            "type": "No Extended Warranty",
+            "selected": true
+          }
+        ]
+      }
+    },
+    "images": [
+      "placeholder_url_for_main_green_phone_image",
+      "placeholder_url_for_purple_variant_thumbnail",
+      "placeholder_url_for_black_variant_thumbnail",
+      "placeholder_url_for_green_variant_thumbnail",
+      "placeholder_url_for_another_purple_variant_thumbnail"
+    ],
+    "delivery_options": {
+      "home_delivery": "Available for home delivery NEXT DAY*",
+      "click_and_collect": {
+        "location": "Flacq - Francois Mitterand Avenue",
+        "stock": "5 In stock"
+      }
+    }
+  },
+  {
+    "name": "HONOR X7C FOREST GREEN",
+    "brand": "HONOR",
+    "model": "X7C",
+    "variant": "FOREST GREEN",
+    "pricing": {
+      "cash_price": "Rs 11,990",
+      "credit_instalment": {
+        "months": "30",
+        "amount_per_month": "Rs 465"
+      },
+      "supashield_price": "Rs 2,599"
+    },
+    "specs": {
+      "display": "6.77 inch TFT LCD HD+ Display, Resolution: 1610 x 720 pixels",
+      "processor": "Qualcomm Snapdragon 685 Octa Core 2.8 GHz",
+      "ram": "8+8GB (Honor Turbo)",
+      "storage": "256GB Internal Storage",
+      "camera": {
+        "rear": "108MP+2MP",
+        "front": "8MP"
+      },
+      "battery": "6000mAh",
+      "software": "MagicOS 8.0 (Based on Android 14)",
+      "warranty": "2 Years Warranty"
+    },
+    "images": [
+      "https://www.courtsmammouth.mu/images/products/20042190-Honor-X7C-Forest-Green-1.webp",
+      "https://www.courtsmammouth.mu/images/products/20042190-Honor-X7C-Forest-Green-2.webp",
+      "https://www.courtsmammouth.mu/images/products/20042190-Honor-X7C-Forest-Green-3.webp"
+    ]
+  }
+]

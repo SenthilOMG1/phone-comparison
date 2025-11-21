@@ -1,0 +1,1452 @@
+{
+  "mode": "hybrid",
+  "timestamp": "2025-11-21T13:05:27.701179",
+  "results": [
+    {
+      "retailer": "Courts Mauritius",
+      "status": "success",
+      "products_found": 20,
+      "products": [
+        {
+          "name": "Samsung Galaxy A26 5G 6GB 128GB Light Green",
+          "brand": "Samsung",
+          "model": "Galaxy A26 5G",
+          "variant": "6GB 128GB Light Green",
+          "pricing": {
+            "cash_price": 9990,
+            "credit_price": 11610,
+            "original_price": 13390,
+            "discount_amount": 3400,
+            "discount_percent": 25,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Full HD+",
+              "type": "Super AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa Core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "6GB",
+              "storage": "128GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "13MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": "5000mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": "5G",
+              "wifi": "Yes",
+              "bluetooth": "Yes",
+              "nfc": null,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.40 x 7.75 x 0.77 cm",
+              "weight": "200g",
+              "build": null,
+              "colors": [
+                "Light Green"
+              ]
+            }
+          },
+          "images": [
+            "https://www.courtsmammouth.mu/media/catalog/product/cache/26e38b7d727b3d36e2f170f40d3989c4/s/a/samsung-galaxy-a26-5g-light-green.jpg"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/samsung-galaxy-a26-5g-6gb128gb-light-green.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Samsung Galaxy A17 5G 128GB Black",
+          "brand": "Samsung",
+          "model": "Galaxy A17 5G",
+          "variant": "128GB Black",
+          "pricing": {
+            "cash_price": 9590,
+            "credit_price": 11160,
+            "original_price": null,
+            "discount_amount": null,
+            "discount_percent": null,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Full HD+",
+              "type": "Super AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa Core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "4GB",
+              "storage": "128GB",
+              "expandable": "Yes (MicroSD)"
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "13MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": "5000mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": "5G",
+              "wifi": true,
+              "bluetooth": true,
+              "nfc": null,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.44 x 7.79 x 0.75 cm (Height x Width x Depth)",
+              "weight": "192g",
+              "build": null,
+              "colors": [
+                "Black"
+              ]
+            }
+          },
+          "images": [
+            "https://www.courtsmammouth.mu/media/catalog/product/cache/f1b033d52033c46777c5c0a3205b38ed/a/1/a17_5g_black.webp"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/samsung-galaxy-a17-5g-black.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Honor X7c 256GB Midnight Black",
+          "brand": "Honor",
+          "model": "X7c",
+          "variant": "256GB Midnight Black",
+          "pricing": {
+            "cash_price": 11990,
+            "credit_price": 13950,
+            "original_price": 12990,
+            "discount_amount": 1000,
+            "discount_percent": 8,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.77 inches",
+              "resolution": "HD+",
+              "type": "TFT LCD",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": "Octa Core",
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "16GB",
+              "storage": "256GB",
+              "expandable": "No"
+            },
+            "camera": {
+              "main": "108MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "8MP",
+              "features": []
+            },
+            "battery": {
+              "capacity": "6000mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": true,
+              "bluetooth": true,
+              "nfc": false,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": "Magic OS"
+            },
+            "physical": {
+              "dimensions": "16.69 x 7.68 x 0.809 cm",
+              "weight": "0.194 kg",
+              "build": null,
+              "colors": [
+                "Midnight Black"
+              ]
+            }
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/honor-x7c-midnight-black.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Samsung Galaxy A05 64GB Silver",
+          "brand": "Samsung",
+          "model": "Galaxy A05",
+          "variant": "64GB Silver",
+          "pricing": {
+            "cash_price": 4790,
+            "credit_price": 5580,
+            "original_price": 5590,
+            "discount_amount": 800,
+            "discount_percent": 14,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "HD+",
+              "type": "LCD",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "4GB",
+              "storage": "64GB",
+              "expandable": "Yes (MicroSD)"
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "8MP",
+              "features": []
+            },
+            "battery": {
+              "capacity": "5000mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": "Wi-Fi",
+              "bluetooth": "Yes",
+              "nfc": false,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.88 x 7.82 x 0.88 cm",
+              "weight": "195g",
+              "build": null,
+              "colors": [
+                "Silver"
+              ]
+            }
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/samsung-galaxy-a05-64gb-silver.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Realme Note60x 128GB 4GB Marble Green",
+          "brand": "Realme",
+          "model": "Note60x",
+          "variant": "128GB 4GB Marble Green",
+          "pricing": {
+            "cash_price": 5990,
+            "credit_price": 6960,
+            "original_price": 6990,
+            "discount_amount": 1000,
+            "discount_percent": 14,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.74 inches",
+              "resolution": "HD+",
+              "type": "LCD",
+              "refresh_rate": "90Hz",
+              "brightness": "450 nits (TYP) / 560 nits (HBM)",
+              "touch_sampling_rate": "Up to 180 Hz",
+              "screen_to_body_ratio": "90.3%"
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "4GB",
+              "storage": "128GB",
+              "expandable": "Yes (1 Micro SD slot)"
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "5MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": "10W",
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": "Wi-Fi 5",
+              "bluetooth": "5.0",
+              "nfc": null,
+              "usb": "USB-C",
+              "audio_jack": "3.5mm",
+              "sim_slots": "Dual Nano SIM"
+            },
+            "software": {
+              "os": null,
+              "ui": null
+            },
+            "physical": {
+              "dimensions": null,
+              "thickness": "7.84mm",
+              "weight": "187g",
+              "build": "Straight-edged middle frame, Exquisite Shimmering Texture, Nano-level Lithography Process",
+              "colors": [
+                "Marble Green"
+              ],
+              "sensors": [
+                "Magnetic Induction Sensor",
+                "Light Sensor",
+                "Proximity Sensor",
+                "Acceleration Sensor"
+              ]
+            }
+          },
+          "images": null,
+          "url": "https://www.courtsmammouth.mu/product/realme-note60x-128gb-4gb-marble-green-neea.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Realme C71 128GB 6GB White",
+          "brand": "Realme",
+          "model": "C71",
+          "variant": "128GB 6GB White",
+          "pricing": {
+            "cash_price": 7490,
+            "credit_price": 8700,
+            "original_price": 8490,
+            "discount_amount": 1000,
+            "discount_percent": 12,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.67 inches",
+              "resolution": "HD+",
+              "type": "LCD",
+              "refresh_rate": null,
+              "peak_brightness": "725 nits",
+              "screen_to_body_ratio": "89.97%",
+              "contrast_ratio": "1500:1"
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": null,
+              "gpu": null
+            },
+            "memory": {
+              "ram": "6GB",
+              "storage": "128GB",
+              "expandable": "Yes"
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "5MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": "45W Supervooc",
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": null,
+              "bluetooth": "5.2",
+              "nfc": null,
+              "usb": "USB-C",
+              "card_slots": "1 SD Card Slot",
+              "sim_slots": "2 Nano Card Slots"
+            },
+            "software": {
+              "os": null,
+              "ui": null,
+              "features": [
+                "Mini Capsule: Interacting with allowed apps or functions in the top area of the screen.",
+                "Privacy Safe: Encryption of various files such as photo albums, videos, documents."
+              ]
+            },
+            "physical": {
+              "dimensions": null,
+              "weight": null,
+              "build": null,
+              "colors": [
+                "White"
+              ],
+              "sensors": [
+                "Geomagnetic sensor",
+                "proximity sensor",
+                "light sensor",
+                "acceleration sensor",
+                "flicker sensor",
+                "side capacitive"
+              ]
+            }
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/realme-c71-128gb-6gb-white.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Samsung Galaxy A17 5G 128GB Blue",
+          "brand": "Samsung",
+          "model": "Galaxy A17 5G",
+          "variant": "128GB Blue",
+          "pricing": {
+            "cash_price": 9590,
+            "credit_price": 11160,
+            "original_price": 10490,
+            "discount_amount": 900,
+            "discount_percent": 8,
+            "currency": "MUR",
+            "in_stock": null,
+            "stock_status": null
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Full HD+",
+              "type": "Super AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa Core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "4GB",
+              "storage": "128GB",
+              "expandable": "MicroSD"
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "13MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": "5000mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": "5G",
+              "wifi": "Wi-Fi",
+              "bluetooth": "Bluetooth",
+              "nfc": null,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "164.4 x 77.9 x 7.5 mm",
+              "weight": "192g",
+              "build": null,
+              "colors": [
+                "Blue"
+              ]
+            }
+          },
+          "images": null,
+          "url": null,
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Samsung Galaxy A56 5G 8GB 256GB Light Pink",
+          "brand": "Samsung",
+          "model": "Galaxy A56",
+          "variant": "8GB 256GB Light Pink",
+          "pricing": {
+            "cash_price": 22590,
+            "credit_price": 26250,
+            "original_price": null,
+            "discount_amount": null,
+            "discount_percent": null,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Full HD+",
+              "type": "Super AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "8GB",
+              "storage": "256GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "12MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": "5G",
+              "wifi": true,
+              "bluetooth": true,
+              "nfc": null,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.22 x 7.75 x 0.74 cm",
+              "weight": "198g",
+              "build": null,
+              "colors": [
+                "Light Pink"
+              ]
+            }
+          },
+          "images": [
+            "https://i.imgur.com/example_samsung_a56_pink_main.jpg"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/samsung-galaxy-a56-5g-8gb256gb-light-pink.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Realme C71 128GB 6GB Forest Green",
+          "brand": "Realme",
+          "model": "C71",
+          "variant": "6GB 128GB Forest Green",
+          "pricing": {
+            "cash_price": 7490,
+            "credit_price": 8700,
+            "original_price": 8490,
+            "discount_amount": 1000,
+            "discount_percent": 12,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.67 inches",
+              "resolution": "HD+",
+              "type": "LCD",
+              "refresh_rate": null,
+              "brightness": "725 nit",
+              "contrast_ratio": "1500:1",
+              "screen_to_body_ratio": "89.97%"
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": null,
+              "gpu": null
+            },
+            "memory": {
+              "ram": "6GB",
+              "storage": "128GB",
+              "expandable": "Yes (1 SD Card Slot)"
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "5MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": "45W Supervooc",
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": null,
+              "bluetooth": "5.2",
+              "nfc": null,
+              "usb": "USB-C",
+              "sim_slots": "Dual Nano SIM"
+            },
+            "software": {
+              "os": null,
+              "ui": null
+            },
+            "physical": {
+              "dimensions": null,
+              "weight": null,
+              "build": null,
+              "colors": [
+                "Forest Green"
+              ],
+              "sensors": [
+                "Geomagnetic sensor",
+                "proximity sensor",
+                "light sensor",
+                "acceleration sensor",
+                "flicker sensor",
+                "side capacitive"
+              ]
+            }
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/realme-c71-128gb-6gb-forest-owi.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Realme C75x 256GB 8GB Oceanic Blue",
+          "brand": "Realme",
+          "model": "C75x",
+          "variant": "256GB 8GB Oceanic Blue",
+          "pricing": {
+            "cash_price": 9990,
+            "credit_price": 11610,
+            "original_price": 10990,
+            "discount_amount": 1000,
+            "discount_percent": 9,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.67 inches",
+              "resolution": "HD+",
+              "type": "LCD",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": "MediaTek Helio G81",
+              "cpu": null,
+              "gpu": null
+            },
+            "memory": {
+              "ram": "8GB",
+              "storage": "256GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "5MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": "45W",
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": "Wi-Fi 5",
+              "bluetooth": "5.0",
+              "nfc": null,
+              "usb": null
+            },
+            "software": {
+              "os": "Android",
+              "ui": "Realme UI"
+            },
+            "physical": {
+              "dimensions": null,
+              "weight": null,
+              "build": null,
+              "colors": [
+                "Oceanic Blue"
+              ]
+            }
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/realme-c75x-256gb-8gb-oceanic-blue.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Honor X5b Midnight Black",
+          "brand": "Honor",
+          "model": "X5b",
+          "variant": "64GB Midnight Black",
+          "pricing": {
+            "cash_price": 4990,
+            "credit_price": null,
+            "original_price": 5990,
+            "discount_amount": 1000,
+            "discount_percent": 17,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": null
+          },
+          "specifications": {
+            "display": {
+              "size": "6.56 inches",
+              "resolution": "HD+",
+              "type": "TFT LCD",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "8GB",
+              "storage": "64GB",
+              "expandable": "Yes (MicroSD)"
+            },
+            "camera": {
+              "main": "13MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "5MP",
+              "features": [
+                "Dual Rear Cameras"
+              ]
+            },
+            "battery": {
+              "capacity": "5200mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": true,
+              "bluetooth": true,
+              "nfc": false,
+              "usb": "USB-C",
+              "sim_slots": "Dual"
+            },
+            "software": {
+              "os": "Magic OS",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.385 x 7.575 x 0.87 cm",
+              "weight": "194g",
+              "build": null,
+              "colors": [
+                "Black"
+              ]
+            }
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/honor-x5b-midnight-black.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Samsung Galaxy S25 Plus Silver 256GB",
+          "brand": "Samsung",
+          "model": "Galaxy S25 Plus",
+          "variant": "256GB Silver",
+          "pricing": {
+            "cash_price": 53990,
+            "credit_price": 62760,
+            "original_price": null,
+            "discount_amount": null,
+            "discount_percent": null,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Quad HD+",
+              "type": "Dynamic AMOLED 2X",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "12GB",
+              "storage": "256GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "12MP",
+              "features": []
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": null,
+              "bluetooth": null,
+              "nfc": null,
+              "usb": null
+            },
+            "software": {
+              "os": null,
+              "ui": null
+            },
+            "physical": {
+              "dimensions": null,
+              "weight": null,
+              "build": null,
+              "colors": [
+                "Silver"
+              ]
+            }
+          },
+          "images": [
+            "https://www.courtsmammouth.mu/assets/images/samsung-galaxy-s25-plus-silver.jpg"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/samsung-galaxy-s25-plus-silver.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "HONOR 400 Lite 16GB 256GB Velvet Black",
+          "brand": "HONOR",
+          "model": "400 Lite",
+          "variant": "16GB 256GB Black",
+          "pricing": {
+            "cash_price": 17990,
+            "credit_price": 20910,
+            "original_price": null,
+            "discount_amount": null,
+            "discount_percent": null,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Full HD+",
+              "type": "AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "16GB",
+              "storage": "256GB",
+              "expandable": "No"
+            },
+            "camera": {
+              "main": "108MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "16MP",
+              "features": [
+                "Dual Rear Camera"
+              ]
+            },
+            "battery": {
+              "capacity": "5230mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": true,
+              "bluetooth": true,
+              "nfc": true,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Magic OS",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "161 x 74.55 x 7.29 mm",
+              "weight": "171g",
+              "build": null,
+              "colors": [
+                "Black"
+              ]
+            }
+          },
+          "images": [],
+          "url": null,
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Samsung Galaxy S25 Plus 256GB Mint",
+          "brand": "Samsung",
+          "model": "Galaxy S25 Plus",
+          "variant": "256GB Mint",
+          "pricing": {
+            "cash_price": 53990,
+            "credit_price": 62760,
+            "original_price": null,
+            "discount_amount": null,
+            "discount_percent": null,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Quad HD+",
+              "type": "Dynamic AMOLED 2X",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "12GB",
+              "storage": "256GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "12MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": null,
+              "bluetooth": null,
+              "nfc": null,
+              "usb": null
+            },
+            "software": {
+              "os": null,
+              "ui": null
+            },
+            "physical": {
+              "dimensions": null,
+              "weight": null,
+              "build": null,
+              "colors": [
+                "Mint"
+              ]
+            }
+          },
+          "images": [
+            "https://www.courtsmammouth.mu/images/samsung-galaxy-s25-plus-mint.jpg"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/samsung-galaxy-s25-plus-mint.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Honor X9c 256GB Titanium Black",
+          "brand": "Honor",
+          "model": "X9c",
+          "variant": "256GB Titanium Black",
+          "pricing": {
+            "cash_price": 22990,
+            "credit_price": null,
+            "original_price": null,
+            "discount_amount": null,
+            "discount_percent": null,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.78 inches",
+              "resolution": "Full HD",
+              "type": "AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa Core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "12GB",
+              "storage": "256GB",
+              "expandable": "No"
+            },
+            "camera": {
+              "main": "108MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "16MP",
+              "features": []
+            },
+            "battery": {
+              "capacity": "6600mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": "Yes",
+              "bluetooth": "Yes",
+              "nfc": null,
+              "usb": "USB-C",
+              "sim_card_slot": "Dual"
+            },
+            "software": {
+              "os": "Magic OS",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.28 x 7.55 x 0.798 cm",
+              "weight": "189g",
+              "build": null,
+              "colors": [
+                "Titanium Black"
+              ]
+            },
+            "warranty": "2 years"
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/honor-x9c-titanium-black.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Huawei Nova Y73 Black",
+          "brand": "Huawei",
+          "model": "Nova Y73",
+          "variant": "8GB RAM 256GB Black",
+          "pricing": {
+            "cash_price": 9990,
+            "credit_price": 11610,
+            "original_price": 10990,
+            "discount_amount": 1000,
+            "discount_percent": 9,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.67 inches",
+              "resolution": "HD+",
+              "type": "LCD",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa Core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "8GB",
+              "storage": "256GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "8MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": "6620mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": null,
+              "bluetooth": null,
+              "nfc": null,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": null,
+              "ui": "EMUI"
+            },
+            "physical": {
+              "dimensions": "166.05 x 76.58 x 8.25 mm",
+              "weight": "203g",
+              "build": null,
+              "colors": [
+                "Black"
+              ]
+            }
+          },
+          "images": [
+            "https://www.courtsmammouth.mu/media/catalog/product/cache/large/nova_y73_black.webp"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/huawei-nova-y73-black.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Honor X9c Jade Cyan",
+          "brand": "Honor",
+          "model": "X9c",
+          "variant": "256GB Jade Cyan",
+          "pricing": {
+            "cash_price": 22990,
+            "credit_price": 26730,
+            "original_price": null,
+            "discount_amount": null,
+            "discount_percent": null,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "warranty": "2 years",
+            "display": {
+              "size": "6.78 inches",
+              "resolution": "Full HD",
+              "type": "AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa Core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "12GB",
+              "storage": "256GB",
+              "expandable": "No"
+            },
+            "camera": {
+              "main": "108MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "16MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": "6600mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": true,
+              "bluetooth": true,
+              "nfc": null,
+              "usb": "USB-C",
+              "sim_slots": "Dual"
+            },
+            "software": {
+              "os": "Magic OS",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.28 x 7.55 x 0.798 cm",
+              "weight": "189g",
+              "build": null,
+              "colors": [
+                "Jade Cyan"
+              ]
+            }
+          },
+          "images": null,
+          "url": null,
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Realme C75-256GB-Gold",
+          "brand": "Realme",
+          "model": "C75",
+          "variant": "256GB Gold",
+          "pricing": {
+            "cash_price": 9990,
+            "credit_price": 11610,
+            "original_price": 10990,
+            "discount_amount": 1000,
+            "discount_percent": 9,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.72 inches",
+              "resolution": "Full HD+",
+              "type": "IPS",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "12GB",
+              "storage": "256GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "8MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": null,
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": null,
+              "bluetooth": "Yes",
+              "nfc": null,
+              "usb": null
+            },
+            "software": {
+              "os": null,
+              "ui": "Realme UI"
+            },
+            "physical": {
+              "dimensions": "16.569 x 7.622 x 0.799 cm",
+              "weight": "196g",
+              "build": null,
+              "colors": [
+                "Gold"
+              ]
+            }
+          },
+          "images": [],
+          "url": "https://www.courtsmammouth.mu/product/realme-c75-256gb-gold.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Samsung Galaxy A36 5G 8GB 128GB Black",
+          "brand": "Samsung",
+          "model": "Galaxy A36 5G",
+          "variant": "8GB 128GB Black",
+          "pricing": {
+            "cash_price": 15990,
+            "credit_price": 18600,
+            "original_price": 17590,
+            "discount_amount": 1600,
+            "discount_percent": 9,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Full HD+",
+              "type": "Super AMOLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa Core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "8GB",
+              "storage": "128GB",
+              "expandable": null
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "12MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": "5000mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": "5G",
+              "wifi": "Yes",
+              "bluetooth": "Yes",
+              "nfc": null,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.29 x 7.82 x 0.74 cm",
+              "weight": "195g",
+              "build": null,
+              "colors": [
+                "Black"
+              ]
+            },
+            "additional_features": {
+              "warranty": "2 years",
+              "usb_c_ports": 1
+            }
+          },
+          "images": [
+            "https://i.imgur.com/W2U2I2r.jpeg"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/samsung-galaxy-a36-5g-8gb128gb-black.html",
+          "retailer": "Courts Mauritius"
+        },
+        {
+          "name": "Google Pixel 7 Pro 128GB",
+          "brand": "Google",
+          "model": "Pixel 7 Pro",
+          "variant": "128GB",
+          "pricing": {
+            "cash_price": 34990,
+            "credit_price": 40680,
+            "original_price": 74490,
+            "discount_amount": 39500,
+            "discount_percent": 53,
+            "currency": "MUR",
+            "in_stock": true,
+            "stock_status": "In Stock"
+          },
+          "specifications": {
+            "display": {
+              "size": "6.7 inches",
+              "resolution": "Quad HD+",
+              "type": "OLED",
+              "refresh_rate": null
+            },
+            "processor": {
+              "chipset": null,
+              "cpu": "Octa-core",
+              "gpu": null
+            },
+            "memory": {
+              "ram": "12GB",
+              "storage": "128GB",
+              "expandable": "No"
+            },
+            "camera": {
+              "main": "50MP",
+              "ultrawide": null,
+              "telephoto": null,
+              "front": "10.8MP",
+              "features": null
+            },
+            "battery": {
+              "capacity": "5000mAh",
+              "fast_charging": null,
+              "wireless_charging": null
+            },
+            "connectivity": {
+              "network": null,
+              "wifi": true,
+              "bluetooth": true,
+              "nfc": true,
+              "usb": "USB-C"
+            },
+            "software": {
+              "os": "Android",
+              "ui": null
+            },
+            "physical": {
+              "dimensions": "16.29 x 7.66 x 0.89 cm",
+              "weight": "212g",
+              "build": null,
+              "colors": null
+            }
+          },
+          "images": [
+            "https://www.courtsmammouth.mu/media/catalog/product/cache/1/image/700x700/be45ee44a04d552cf3a5b3f112001a45/a/b/ab8515f40c11e3895e348937e29631d8ce08e2d4_2.jpg"
+          ],
+          "url": "https://www.courtsmammouth.mu/product/google-pixel-7-pro.html",
+          "retailer": "Courts Mauritius"
+        }
+      ],
+      "execution_time_seconds": 1163.10382,
+      "scraped_at": "2025-11-21T13:04:40.660595",
+      "products_saved": 20
+    },
+    {
+      "retailer": "Galaxy Electronics",
+      "status": "no_products",
+      "products_found": 0,
+      "products": [],
+      "execution_time_seconds": 9.949397,
+      "scraped_at": "2025-11-21T13:05:27.700388"
+    }
+  ]
+}

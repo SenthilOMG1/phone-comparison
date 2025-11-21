@@ -215,6 +215,59 @@ async def get_scraper_logs(limit: int = 50):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+# ========================================
+# LIVE PRICING FOR COMPARISON TOOL
+# ========================================
+
+@app.get("/api/phones/live-price/{phone_model}")
+async def get_live_price_for_phone(phone_model: str):
+    """
+    Get live retailer prices for a specific phone model
+    Example: /api/phones/live-price/samsung-galaxy-s24
+    """
+    try:
+        # Search for products matching this phone model
+        # We'll look for partial matches in the product names
+        model_query = phone_model.replace('-', ' ').lower()
+
+        latest_prices = db_manager.get_latest_prices(limit=500)
+
+        # Filter to find matching products
+        matching_products = []
+        for price in latest_prices:
+            product_name_lower = price['product_name'].lower()
+            model_lower = price['model'].lower() if price['model'] else ''
+
+            # Check if model matches
+            if model_query in product_name_lower or model_query in model_lower:
+                matching_products.append(price)
+
+        # Group by variant and find best prices
+        if not matching_products:
+            return {
+                'phone_model': phone_model,
+                'found': False,
+                'prices': []
+            }
+
+        # Get best price (lowest)
+        best_price = min(matching_products, key=lambda x: x['price_cash'] if x['price_cash'] else float('inf'))
+
+        return {
+            'phone_model': phone_model,
+            'found': True,
+            'best_price': {
+                'retailer': best_price['retailer_name'],
+                'price': best_price['price_cash'],
+                'original_price': best_price['original_price'],
+                'url': best_price['url'],
+                'in_stock': best_price['in_stock']
+            },
+            'all_retailers': matching_products
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 8000))

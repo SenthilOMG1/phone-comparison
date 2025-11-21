@@ -1,6 +1,12 @@
+/**
+ * LEGACY: This hook is kept for backwards compatibility
+ * New code should use usePhoneSearch from usePhones.ts
+ */
+
 import { useState, useEffect } from 'react';
 import { PhoneSearchResult } from '../types';
-import { searchPhones } from '../services/search';
+import { getPhoneService } from '../di/container';
+import { PhoneMapper } from '../application/mappers';
 import { useDebounce } from './useDebounce';
 
 export function useSearch(initialQuery: string = '') {
@@ -9,8 +15,13 @@ export function useSearch(initialQuery: string = '') {
   const [isSearching, setIsSearching] = useState(false);
 
   const debouncedQuery = useDebounce(query, 300);
+  const phoneService = getPhoneService();
 
   useEffect(() => {
+    searchPhones();
+  }, [debouncedQuery]);
+
+  const searchPhones = async () => {
     if (!debouncedQuery.trim()) {
       setResults([]);
       setIsSearching(false);
@@ -19,10 +30,25 @@ export function useSearch(initialQuery: string = '') {
 
     setIsSearching(true);
 
-    const searchResults = searchPhones(debouncedQuery, 10);
-    setResults(searchResults);
-    setIsSearching(false);
-  }, [debouncedQuery]);
+    try {
+      const searchResults = await phoneService.searchPhones(debouncedQuery, 10);
+
+      // Convert to PhoneSearchResult format
+      const mappedResults: PhoneSearchResult[] = searchResults.map((r) => ({
+        phone: PhoneMapper.toDTO(r.phone),
+        confidence: r.confidence,
+        matchType: r.matchType,
+        matchedFields: [],
+      }));
+
+      setResults(mappedResults);
+    } catch (error) {
+      console.error('Search failed:', error);
+      setResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
 
   const clearSearch = () => {
     setQuery('');

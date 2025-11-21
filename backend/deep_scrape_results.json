@@ -1,0 +1,200 @@
+[
+  {
+    "name": null,
+    "brand": null,
+    "model": null,
+    "variant": null,
+    "pricing": {
+      "cash_price": null,
+      "credit_price": null,
+      "original_price": null,
+      "discount_amount": null,
+      "discount_percent": null,
+      "currency": "MUR",
+      "in_stock": false,
+      "stock_status": "Page Not Found"
+    },
+    "specifications": {
+      "display": {
+        "size": null,
+        "resolution": null,
+        "type": null,
+        "refresh_rate": null
+      },
+      "processor": {
+        "chipset": null,
+        "cpu": null,
+        "gpu": null
+      },
+      "memory": {
+        "ram": null,
+        "storage": null,
+        "expandable": null
+      },
+      "camera": {
+        "main": null,
+        "ultrawide": null,
+        "telephoto": null,
+        "front": null,
+        "features": []
+      },
+      "battery": {
+        "capacity": null,
+        "fast_charging": null,
+        "wireless_charging": null
+      },
+      "connectivity": {
+        "network": null,
+        "wifi": null,
+        "bluetooth": null,
+        "nfc": null,
+        "usb": null
+      },
+      "software": {
+        "os": null,
+        "ui": null
+      },
+      "physical": {
+        "dimensions": null,
+        "weight": null,
+        "build": null,
+        "colors": []
+      }
+    },
+    "images": [],
+    "url": "https://www.courtsmammouth.mu/product/20042184",
+    "retailer": "Courts Mauritius"
+  },
+  {
+    "name": null,
+    "brand": null,
+    "model": null,
+    "variant": null,
+    "pricing": {
+      "cash_price": null,
+      "credit_price": null,
+      "original_price": null,
+      "discount_amount": null,
+      "discount_percent": null,
+      "currency": null,
+      "in_stock": null,
+      "stock_status": null
+    },
+    "specifications": {
+      "display": {
+        "size": null,
+        "resolution": null,
+        "type": null,
+        "refresh_rate": null
+      },
+      "processor": {
+        "chipset": null,
+        "cpu": null,
+        "gpu": null
+      },
+      "memory": {
+        "ram": null,
+        "storage": null,
+        "expandable": null
+      },
+      "camera": {
+        "main": null,
+        "ultrawide": null,
+        "telephoto": null,
+        "front": null,
+        "features": []
+      },
+      "battery": {
+        "capacity": null,
+        "fast_charging": null,
+        "wireless_charging": null
+      },
+      "connectivity": {
+        "network": null,
+        "wifi": null,
+        "bluetooth": null,
+        "nfc": null,
+        "usb": null
+      },
+      "software": {
+        "os": null,
+        "ui": null
+      },
+      "physical": {
+        "dimensions": null,
+        "weight": null,
+        "build": null,
+        "colors": []
+      }
+    },
+    "images": [],
+    "url": null,
+    "retailer": "Courts Mauritius"
+  },
+  {
+    "name": null,
+    "brand": null,
+    "model": null,
+    "variant": null,
+    "pricing": {
+      "cash_price": null,
+      "credit_price": null,
+      "original_price": null,
+      "discount_amount": null,
+      "discount_percent": null,
+      "currency": "MUR",
+      "in_stock": null,
+      "stock_status": "Page not found"
+    },
+    "specifications": {
+      "display": {
+        "size": null,
+        "resolution": null,
+        "type": null,
+        "refresh_rate": null
+      },
+      "processor": {
+        "chipset": null,
+        "cpu": null,
+        "gpu": null
+      },
+      "memory": {
+        "ram": null,
+        "storage": null,
+        "expandable": null
+      },
+      "camera": {
+        "main": null,
+        "ultrawide": null,
+        "telephoto": null,
+        "front": null,
+        "features": []
+      },
+      "battery": {
+        "capacity": null,
+        "fast_charging": null,
+        "wireless_charging": null
+      },
+      "connectivity": {
+        "network": null,
+        "wifi": null,
+        "bluetooth": null,
+        "nfc": null,
+        "usb": null
+      },
+      "software": {
+        "os": null,
+        "ui": null
+      },
+      "physical": {
+        "dimensions": null,
+        "weight": null,
+        "build": null,
+        "colors": []
+      }
+    },
+    "images": [],
+    "url": "https://www.courtsmammouth.mu/product/20042127",
+    "retailer": "Courts Mauritius"
+  }
+]

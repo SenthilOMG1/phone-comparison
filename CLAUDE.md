@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **CEO Dashboard**: Live market insights and pricing strategy data (in development)
 - Empowers decision-making with evidence-based data curated for Mauritius market
 
-**Current Status**: ~60% complete. Frontend fully functional with static data. Backend fully built with API and 2 working scrapers. Frontend-backend integration pending.
+**Current Status**: ~70% complete. Frontend fully functional with Clean Architecture. Backend deployed on AWS Lightsail with Gemini AI-powered scrapers. Supabase database configured. Frontend-backend integration in progress.
 
 ## Development Commands
 
@@ -37,8 +37,14 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 playwright install chromium
 
-# Test scraper (no database)
+# Test traditional scraper (no database)
 python test_scraper.py
+
+# Test Gemini AI vision scraper (Courts - with screenshots)
+python scrapers/gemini_agent_scraper.py
+
+# Test deep scraper (clicks into each product for full specs)
+python scrapers/deep_gemini_scraper.py
 
 # Run all scrapers and save to database
 python scrapers/scraper_orchestrator.py
@@ -57,14 +63,30 @@ python utils/scheduler.py
 python utils/scheduler.py --once
 ```
 
-### Database Setup
+### Database Setup (Supabase)
 ```bash
-createdb mobimea_intelligence
-psql mobimea_intelligence < backend/database/schema.sql
-
 # Configure backend/.env:
-DATABASE_URL=postgresql://postgres:PASSWORD@localhost:5432/mobimea_intelligence
-GEMINI_API_KEY=AIzaSyDvX4y6Blc567p_UdsXPqCUYEaKqAw0DQY
+SUPABASE_URL=https://vdyhrjlqqfrsvqnilkuc.supabase.co
+SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_KEY=your_service_key
+DATABASE_URL=postgresql://postgres:Mobi%402025@db.vdyhrjlqqfrsvqnilkuc.supabase.co:5432/postgres
+GEMINI_API_KEY=AIzaSyC6-S6Jrgby1sIsqvTMnTc4cWnI5PSCre4
+FRONTEND_URL=http://localhost:5177
+PORT=8000
+```
+
+### Deployment (AWS Lightsail)
+```bash
+# Server: 13.214.194.115 (Singapore region)
+# Access: ssh -i intel.mobimea.pem ubuntu@13.214.194.115
+
+# Frontend: http://13.214.194.115 (Nginx)
+# Backend API: http://13.214.194.115/api/health
+# SSL (pending DNS): https://intel.mobimea.com
+
+# Backend runs in Docker container
+# Frontend built with: VITE_API_URL=/api npm run build
+# Caddy configured for automatic HTTPS when DNS propagates
 ```
 
 ## Architecture
@@ -79,10 +101,38 @@ GEMINI_API_KEY=AIzaSyDvX4y6Blc567p_UdsXPqCUYEaKqAw0DQY
 
 **Backend**:
 - Python 3.11 + FastAPI 0.104 + Uvicorn 0.24
-- PostgreSQL 15 + TimescaleDB (time-series data)
+- Supabase (PostgreSQL + TimescaleDB for time-series data)
 - SQLAlchemy 2.0 + Playwright 1.40
-- Google Gemini 1.5 Flash (product normalization)
+- Google Gemini 2.5 Flash (AI vision scraping + product normalization)
 - APScheduler 3.10 (automation)
+- Docker deployment on AWS Lightsail
+
+### Frontend: Clean Architecture
+
+The frontend implements Clean Architecture (Domain-Driven Design) with clear layer separation:
+
+**Domain Layer** (`src/domain/`):
+- **Entities**: `Phone.entity.ts`, `Comparison.entity.ts` - Rich domain models with business logic
+- **Value Objects**: `Price.ts`, `Score.ts`, `Benchmark.ts` - Immutable types with validation
+- **Repositories**: `IPhoneRepository.ts` - Interfaces defining data access contracts
+- **Use Cases**: `ComparePhones.usecase.ts`, `SearchPhones.usecase.ts` - Pure business logic
+
+**Application Layer** (`src/application/`):
+- **Services**: `PhoneService.ts` - Orchestrates use cases, facade for presentation layer
+- **Mappers**: `PhoneMapper.ts`, `ComparisonMapper.ts` - Convert between DTOs and entities
+
+**Infrastructure Layer** (`src/infrastructure/`):
+- **Repositories**: `StaticPhoneRepository.ts` - Concrete implementations (static data or API)
+
+**Dependency Injection** (`src/di/container.ts`):
+- Service locator pattern managing dependencies
+- Easy to swap implementations (e.g., static data → API)
+
+**Benefits**:
+- Testable: Pure business logic independent of frameworks
+- Maintainable: Clear separation of concerns
+- Flexible: Easy to replace data sources
+- Type-safe: Full TypeScript coverage
 
 ### Frontend: Core Services Layer
 
@@ -172,14 +222,39 @@ When persona changes, all scores recalculate in real-time to reflect new priorit
 ### Backend: Scraping & Intelligence Pipeline
 
 **Scraping Architecture** (`backend/scrapers/`):
+
+**Three types of scrapers:**
+
+1. **Traditional Scrapers** (Playwright + CSS selectors):
+   - `CourtsScraper`, `GalaxyScraper` - Hardcoded selectors
+   - Fast but brittle (breaks when site changes)
+
+2. **Gemini Vision Agent** (`gemini_agent_scraper.py`):
+   - Takes screenshots of pages
+   - Gemini 2.5 Flash analyzes what it sees
+   - Intelligently scrolls, clicks, extracts
+   - No hardcoded selectors - adapts to site changes
+   - Slower but much more robust
+
+3. **Deep Gemini Scraper** (`deep_gemini_scraper.py`):
+   - Finds all product links on listing page
+   - Clicks into EACH product detail page
+   - Extracts COMPLETE specs for comparison app:
+     * Display, processor, RAM, storage, camera
+     * Battery, connectivity, software, physical specs
+     * Pricing (cash, credit, discounts)
+     * Images, stock status
+   - Perfect for populating comparison app database
+
+**Flow**:
 ```
 ScraperOrchestrator.run_all_scrapers()
     ├─ Run scrapers in parallel (asyncio.gather)
-    │  ├─ CourtsScraper (Playwright async)
-    │  ├─ GalaxyScraper (Playwright async)
-    │  └─ (TODO: PriceGuruScraper, 361Scraper)
+    │  ├─ DeepGeminiScraper (AI-powered, gets full specs)
+    │  ├─ CourtsScraper (traditional, fast)
+    │  └─ GalaxyScraper (traditional, fast)
     ├─ ProductNormalizer.normalize() [Regex or Gemini API]
-    ├─ DatabaseManager.save_scrape_result()
+    ├─ DatabaseManager.save_scrape_result() → Supabase
     └─ ScraperScheduler (6 AM, 12 PM, 6 PM, 12 AM)
 ```
 
@@ -224,14 +299,16 @@ ScraperOrchestrator.run_all_scrapers()
 
 ## Key Technical Decisions
 
-1. **Dual Architecture**: Frontend works independently with static data (`src/data/phones/`). Backend fully built but not yet integrated. This allows frontend development without backend dependency.
-2. **Mauritius Market Configuration**: All prices in MUR (Mauritian Rupee) with `en-MU` locale. Retailers tracked: Courts, Galaxy, Price Guru, 361 Degrees.
-3. **TimescaleDB for Price History**: PostgreSQL extension optimized for time-series data. Auto-partitions price records by time for efficient historical queries.
-4. **Gemini for Normalization**: Handles product name variations across retailers (e.g., "SAMSUNG S24 ULTRA 512GB" vs "Galaxy S24 Ultra 512 GB Black" → same product).
-5. **Playwright over Scrapy**: Handles JavaScript-heavy websites (Galaxy uses Magento). Async browser automation with anti-detection.
-6. **Persona-Based Scoring**: Different customer segments (Photographer, Gamer, Battery User, Budget Buyer) get tailored recommendations.
-7. **No Global State Management**: React local state + URL params + localStorage is sufficient. No Redux/Zustand needed.
-8. **APScheduler over Cron**: Cross-platform Python-native scheduling. Runs scrapers every 6 hours (6 AM, 12 PM, 6 PM, 12 AM).
+1. **Clean Architecture**: Frontend uses Domain-Driven Design with entities, value objects, use cases, and dependency injection. Makes testing and maintenance easier.
+2. **AI-Powered Scraping**: Gemini 2.5 Flash with vision capability "sees" webpages and extracts data intelligently. No brittle CSS selectors. Deep scraper clicks into each product for complete specs.
+3. **Supabase Database**: Managed PostgreSQL with TimescaleDB for price history. Handles auth, real-time subscriptions, and time-series data.
+4. **Mauritius Market Configuration**: All prices in MUR (Mauritian Rupee) with `en-MU` locale. Retailers: Courts, Galaxy, Price Guru, 361 Degrees.
+5. **Gemini for Normalization**: Handles product name variations across retailers (e.g., "SAMSUNG S24 ULTRA 512GB" vs "Galaxy S24 Ultra 512 GB Black" → same product).
+6. **Playwright over Scrapy**: Handles JavaScript-heavy websites. Async browser automation with anti-detection. Works with Gemini vision for intelligent extraction.
+7. **Persona-Based Scoring**: Different customer segments (Photographer, Gamer, Battery User, Budget Buyer) get tailored recommendations with dynamic score recalculation.
+8. **AWS Lightsail Deployment**: Single $12/month instance running both frontend (Nginx) and backend (Docker). Caddy for automatic HTTPS. Simple and cost-effective.
+9. **No Global State Management**: React local state + URL params + localStorage is sufficient. No Redux/Zustand needed.
+10. **APScheduler over Cron**: Cross-platform Python-native scheduling. Runs scrapers every 6 hours.
 
 ## Adding New Phones
 
@@ -367,21 +444,45 @@ useEffect(() => {
 }, []);
 ```
 
-## Build and Deploy
+## Production Deployment (AWS Lightsail)
 
-### Frontend
-Vite handles bundling. Production build outputs to `dist/`.
-- Optimizes dependencies
-- Excludes `lucide-react` from optimization (in vite.config.ts)
-- Deploy to: Vercel, Netlify, or similar (free tiers available)
+**Current Setup:**
+- Server: Ubuntu 22.04 on AWS Lightsail ($12/month)
+- IP: 13.214.194.115 (Singapore region)
+- Domain: intel.mobimea.com (DNS pending)
 
-### Backend
-- Deploy to: DigitalOcean Droplet ($12/mo) or Railway ($5-15/mo)
-- PostgreSQL: Managed database on same provider (~$15/mo)
-- Set environment variables in deployment platform
-- Run `uvicorn api.main:app --host 0.0.0.0 --port 8000`
-- Set up process manager (PM2 or systemd) to keep API running
-- Configure scheduler as separate process or cron job
+**Backend:**
+- Dockerized FastAPI app running on port 8000
+- Connected to Supabase PostgreSQL
+- Auto-restart enabled (`docker run --restart unless-stopped`)
+
+**Frontend:**
+- Built with `VITE_API_URL=/api npm run build`
+- Served by Nginx from `/home/ubuntu/mobimea/dist`
+- Nginx proxies `/api/*` requests to backend container
+
+**HTTPS:**
+- Caddy configured for automatic SSL (waiting for DNS)
+- Will auto-obtain Let's Encrypt cert when intel.mobimea.com DNS propagates
+
+**Deployment Commands:**
+```bash
+# SSH into server
+ssh -i intel.mobimea.pem ubuntu@13.214.194.115
+
+# Update backend
+cd ~/mobimea/backend
+git pull
+docker build -t mobimea-backend .
+docker stop mobimea-backend && docker rm mobimea-backend
+docker run -d --name mobimea-backend --restart unless-stopped -p 8000:8000 --env-file .env mobimea-backend
+
+# Update frontend
+cd ~/mobimea
+git pull
+VITE_API_URL=/api npm run build
+sudo systemctl reload caddy  # Or nginx if using that
+```
 
 ## Documentation Files
 

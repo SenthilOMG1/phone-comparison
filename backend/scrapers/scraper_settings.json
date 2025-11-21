@@ -1,0 +1,22 @@
+{
+  "mode": "hybrid",
+  "max_products": 50,
+  "retailers": {
+    "Courts Mauritius": {
+      "enabled": true,
+      "url": "https://www.courtsmammouth.mu/category/mobile-phones.html"
+    },
+    "Galaxy Electronics": {
+      "enabled": true,
+      "url": "https://www.galaxy.mu/mobiles"
+    },
+    "Price Guru": {
+      "enabled": false,
+      "url": "https://priceguru.mu/smartphones"
+    },
+    "361 Degrees": {
+      "enabled": false,
+      "url": "https://361.mu/category/mobile-phones"
+    }
+  }
+}

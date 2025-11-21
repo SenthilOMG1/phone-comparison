@@ -4,6 +4,7 @@ import json
 import re
 from functools import lru_cache
 import os
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,6 +17,27 @@ class ProductNormalizer:
         genai.configure(api_key=self.api_key)
         self.model = genai.GenerativeModel('gemini-2.5-flash')
         self.cache = {}  # In-memory cache for normalized names
+        self.last_api_call = 0  # Track last Gemini API call for rate limiting
+        self.api_calls_this_minute = 0  # Track calls in current minute
+        self.minute_start = time.time()  # When current minute started
+
+    def _wait_for_rate_limit(self):
+        """Wait if necessary to respect 10 requests/minute rate limit"""
+        current_time = time.time()
+
+        # Reset counter if a new minute has started
+        if current_time - self.minute_start >= 60:
+            self.api_calls_this_minute = 0
+            self.minute_start = current_time
+
+        # If we've hit the limit, wait until the next minute
+        if self.api_calls_this_minute >= 10:
+            wait_time = 60 - (current_time - self.minute_start)
+            if wait_time > 0:
+                print(f"⏳ Rate limit reached. Waiting {wait_time:.1f}s...")
+                time.sleep(wait_time)
+                self.api_calls_this_minute = 0
+                self.minute_start = time.time()
 
     @lru_cache(maxsize=1000)
     def normalize(self, raw_name: str) -> Dict:
@@ -34,10 +56,19 @@ class ProductNormalizer:
             self.cache[raw_name] = quick_result
             return quick_result
 
-        # Fall back to simple normalization (skip Gemini due to quota limits)
-        result = self._fallback_normalize(raw_name)
-        self.cache[raw_name] = result
-        return result
+        # Use Gemini API with rate limiting
+        try:
+            self._wait_for_rate_limit()
+            result = self._gemini_normalize(raw_name)
+            self.api_calls_this_minute += 1
+            self.cache[raw_name] = result
+            return result
+        except Exception as e:
+            print(f"⚠️  Gemini error for '{raw_name}': {e}")
+            # Fall back to simple normalization
+            result = self._fallback_normalize(raw_name)
+            self.cache[raw_name] = result
+            return result
 
     def _quick_normalize(self, raw_name: str) -> Optional[Dict]:
         """Fast regex-based normalization for common patterns"""

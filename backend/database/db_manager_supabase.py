@@ -261,6 +261,89 @@ class DatabaseManager:
             print(f"Error getting scraper logs: {e}")
             return {'total_count': 0, 'logs': []}
 
+    async def save_scraped_product(self, product_data: Dict) -> bool:
+        """Save detailed scraped product with full specifications"""
+        try:
+            # Generate slug from product name
+            slug = product_data['name'].lower().replace(' ', '-').replace('/', '-')
+            slug = ''.join(c for c in slug if c.isalnum() or c == '-')
+
+            # Find or create product
+            product_response = self.client.table('products').select('id').eq('slug', slug).execute()
+
+            if not product_response.data:
+                # Create new product with specifications
+                new_product = self.client.table('products').insert({
+                    'name': product_data['name'],
+                    'brand': product_data['brand'],
+                    'model': product_data['model'],
+                    'variant': product_data.get('variant', ''),
+                    'slug': slug,
+                    'specifications': product_data.get('specifications', {}),
+                    'images': product_data.get('images', [])
+                }).execute()
+                product_id = new_product.data[0]['id']
+            else:
+                product_id = product_response.data[0]['id']
+                # Update product with latest specs
+                self.client.table('products').update({
+                    'updated_at': datetime.now().isoformat(),
+                    'specifications': product_data.get('specifications', {}),
+                    'images': product_data.get('images', [])
+                }).eq('id', product_id).execute()
+
+            # Find retailer ID
+            retailer_response = self.client.table('retailers').select('id').eq('name', product_data['retailer']).execute()
+
+            if not retailer_response.data:
+                # Create retailer if doesn't exist
+                new_retailer = self.client.table('retailers').insert({
+                    'name': product_data['retailer'],
+                    'website_url': product_data.get('url', '').split('/product/')[0] if '/product/' in product_data.get('url', '') else ''
+                }).execute()
+                retailer_id = new_retailer.data[0]['id']
+            else:
+                retailer_id = retailer_response.data[0]['id']
+
+            # Find or create retailer link
+            link_response = self.client.table('retailer_links')\
+                .select('id')\
+                .eq('product_id', product_id)\
+                .eq('retailer_id', retailer_id)\
+                .execute()
+
+            if not link_response.data:
+                new_link = self.client.table('retailer_links').insert({
+                    'product_id': product_id,
+                    'retailer_id': retailer_id,
+                    'original_url': product_data.get('url'),
+                    'scraped_name': product_data['name']
+                }).execute()
+                link_id = new_link.data[0]['id']
+            else:
+                link_id = link_response.data[0]['id']
+                self.client.table('retailer_links').update({
+                    'last_seen_at': datetime.now().isoformat(),
+                    'scraped_name': product_data['name'],
+                    'original_url': product_data.get('url')
+                }).eq('id', link_id).execute()
+
+            # Insert price record
+            self.client.table('prices').insert({
+                'link_id': link_id,
+                'price_cash': product_data.get('price_cash'),
+                'price_credit': product_data.get('price_credit'),
+                'original_price': product_data.get('original_price'),
+                'in_stock': product_data.get('in_stock', True),
+                'stock_status': 'in_stock' if product_data.get('in_stock', True) else 'out_of_stock'
+            }).execute()
+
+            return True
+
+        except Exception as e:
+            print(f"Error saving scraped product: {e}")
+            return False
+
     def get_brand_comparison(self) -> Dict:
         """Compare average prices across brands"""
         try:

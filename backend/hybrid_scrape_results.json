@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Honor X7c 256GB Forest Green",
+    "brand": "Honor",
+    "model": "X7c",
+    "variant": "256GB Forest Green",
+    "pricing": {
+      "cash_price": 11990,
+      "credit_price": 13950,
+      "original_price": null,
+      "discount_amount": null,
+      "discount_percent": null,
+      "currency": "MUR",
+      "in_stock": true,
+      "stock_status": "In Stock"
+    },
+    "specifications": {
+      "display": {
+        "size": "6.77 inches",
+        "resolution": "HD+",
+        "type": "TFT LCD",
+        "refresh_rate": null
+      },
+      "processor": {
+        "chipset": null,
+        "cpu": "Octa-core",
+        "gpu": null
+      },
+      "memory": {
+        "ram": "16GB",
+        "storage": "256GB",
+        "expandable": "No"
+      },
+      "camera": {
+        "main": "108MP",
+        "ultrawide": null,
+        "telephoto": null,
+        "front": "8MP",
+        "features": null
+      },
+      "battery": {
+        "capacity": "6000mAh",
+        "fast_charging": null,
+        "wireless_charging": null
+      },
+      "connectivity": {
+        "network": null,
+        "wifi": true,
+        "bluetooth": true,
+        "nfc": false,
+        "usb": "USB-C"
+      },
+      "software": {
+        "os": null,
+        "ui": "Magic OS"
+      },
+      "physical": {
+        "dimensions": "16.69 x 7.68 x 0.809 cm",
+        "weight": "194g",
+        "build": null,
+        "colors": [
+          "Forest Green"
+        ]
+      }
+    },
+    "images": null,
+    "url": "https://www.courtsmammouth.mu/product/honor-x7c-forest-green.html",
+    "retailer": "Courts Mauritius"
+  }
+]
